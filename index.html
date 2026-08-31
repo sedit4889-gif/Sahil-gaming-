@@ -1,1 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Private Video</title>
 
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: #050505;
+  color: white;
+  font-family: Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.container {
+  text-align: center;
+}
+
+h1 {
+  font-size: 25px;
+}
+
+p {
+  color: #aaa;
+}
+
+button {
+  padding: 16px 32px;
+  border: 0;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#loading {
+  display: none;
+}
+
+#percent {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#jumpscare {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #000;
+  align-items: center;
+  justify-content: center;
+}
+
+.face {
+  font-size: 160px;
+  animation: shake .05s infinite;
+}
+
+@keyframes shake {
+  0% { transform: translate(0); }
+  25% { transform: translate(-15px,10px); }
+  50% { transform: translate(15px,-10px); }
+  75% { transform: translate(-10px,-5px); }
+  100% { transform: translate(0); }
+}
+
+.flash {
+  animation: flash .08s infinite;
+}
+
+@keyframes flash {
+  0%,100% { filter: brightness(1); }
+  50% { filter: brightness(4) contrast(2); }
+}
+
+.credit {
+  position: fixed;
+  bottom: 15px;
+  width: 100%;
+  text-align: center;
+  font-size: 13px;
+  color: #777;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="main">
+  <h1>🔐 Private Video</h1>
+  <p>This video is protected.</p>
+
+  <button onclick="start()">WATCH VIDEO</button>
+
+  <div id="loading">
+    <p>Loading...</p>
+    <div id="percent">0%</div>
+  </div>
+</div>
+
+<div id="jumpscare">
+  <div class="face">👹</div>
+</div>
+
+<div class="credit">
+  Created by @be.like_sahil
+</div>
+
+<script>
+function start() {
+
+  document.querySelector("button").style.display = "none";
+  document.querySelector("p").style.display = "none";
+  document.getElementById("loading").style.display = "block";
+
+  let n = 0;
+
+  let timer = setInterval(() => {
+
+    n += 5;
+    document.getElementById("percent").innerText = n + "%";
+
+    if (n >= 100) {
+
+      clearInterval(timer);
+
+      setTimeout(() => {
+
+        const scare = document.getElementById("jumpscare");
+
+        scare.style.display = "flex";
+        scare.classList.add("flash");
+
+        // Add your MP3 filename here later
+
+      }, 300);
+    }
+
+  }, 100);
+
+}
+</script>
+
+</body>
+</html>
