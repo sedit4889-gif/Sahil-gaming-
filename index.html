@@ -141,7 +141,9 @@ function start() {
         scare.style.display = "flex";
         scare.classList.add("flash");
 
-        // Add your MP3 filename here later
+        const sound = new Audio("𝙔𝙤𝙪 𝙠𝙣𝙤𝙬 𝙩𝙝𝙚 𝙙𝙧𝙞𝙡𝙡.. 𝙥𝙪𝙩 𝙤𝙣 𝙩𝙝𝙚 𝙝𝙚𝙖𝙙𝙥𝙝𝙤𝙣𝙚𝙨.mp3");
+sound.currentTime = 0;
+sound.play();
 
       }, 300);
     }
