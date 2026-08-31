@@ -92,6 +92,12 @@ button {
   color: #777;
 }
 </style>
+  .scare-image {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  animation: shake .05s infinite;
+}
 </head>
 
 <body>
@@ -109,7 +115,7 @@ button {
 </div>
 
 <div id="jumpscare">
-  <div class="face">👹</div>
+  <img class="scare-image" src="scary.jpg.png" alt="">
 </div>
 
 <div class="credit">
